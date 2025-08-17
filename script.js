@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const roundedLimit = Math.floor(deductionLimit / 1000) * 1000;
         resultDiv.innerHTML = `
             <p class="mb-1">あなたの控除上限額の目安は</p>
-            <p class="display-4 fw-bold text-primary">約 ${roundedLimit.toLocaleString()} 円</p>
+            <p class="display-4 fw-bold">約 ${roundedLimit.toLocaleString()} 円</p>
         `;
 
         // --- 計算過程表示 ---
@@ -145,6 +145,15 @@ document.addEventListener('DOMContentLoaded', function() {
         // --- アニメーションと表示 ---
         resultWrapper.classList.remove('d-none');
         printBtn.classList.remove('d-none');
+
+        // --- 計算過程を自動で開く ---
+        const accordionButton = document.querySelector('#calculation-details-accordion .accordion-button');
+        const collapsibleElement = document.getElementById('collapseOne');
+        if (accordionButton && collapsibleElement) {
+            accordionButton.classList.remove('collapsed');
+            accordionButton.setAttribute('aria-expanded', 'true');
+            collapsibleElement.classList.add('show');
+        }
     });
 
     // --- 印刷機能 ---

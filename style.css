@@ -112,7 +112,7 @@ body {
 }
 
 #result {
-    background: linear-gradient(135deg, #007bff, #00d4ff);
+    background: linear-gradient(135deg, #4c8dd3c9, #00d4ff);
     color: white;
     border-radius: 20px;
     box-shadow: 0 8px 32px 0 rgba(0, 123, 255, 0.3);
@@ -128,7 +128,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    background: radial-gradient(circle, rgba(24, 194, 224, 0.25) 0%, rgba(68, 194, 253, 0.082) 70%);
     transform: rotate(30deg);
     animation: shine 5s linear infinite;
 }
@@ -190,7 +190,13 @@ body {
 @media print {
     body {
         background: #fff;
+        font-size: 12pt; /* Increase base font size for printing */
     }
+
+    #result .display-4 {
+        font-size: 2.5rem !important; /* Make result text larger */
+    }
+
     .card, #result, .accordion-item {
         box-shadow: none;
         border: 1px solid #ddd;
@@ -201,5 +207,9 @@ body {
     }
     .form-text {
         display: none;
+    }
+    #result, #result * {
+        color: #000 !important;
+        background: #fff !important;
     }
 }
